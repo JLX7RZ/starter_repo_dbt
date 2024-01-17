@@ -1,11 +1,11 @@
 WITH temp_daily AS (
-    SELECT * 
-    FROM {{ref('staging_temp')}}
+    SELECT *
+    FROM {{ref('staging_weather')}}
 ),
 add_weekday AS (
     SELECT *,
-        DATE_PART('day', date) AS weekday,
-        DATE_PART('DD', date). AS day_num
+        to_char(date,'day') AS weekday,
+        to_char(date,'DD') AS day_num
     FROM temp_daily
 )
 SELECT *
