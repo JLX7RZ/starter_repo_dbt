@@ -1,5 +1,6 @@
-drop table if exists city_weather_data;
-create table city_weather_data as (
+--DROP TABLE IF EXISTS city_weather_data;
+--create table city_weather_data as (
+with city_weather_data as (
 select 	
 		-- GENERAL DATA
 		(extracted_data -> 'location' -> 'name')::VARCHAR  AS city,
