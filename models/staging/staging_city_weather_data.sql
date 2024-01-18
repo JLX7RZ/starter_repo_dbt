@@ -1,7 +1,7 @@
 --DROP TABLE IF EXISTS city_weather_data;
 --create table city_weather_data as (
-with city_weather_data as (
-select 	
+WITH city_weather_data AS (
+SELECT 	
 		-- GENERAL DATA
 		(extracted_data -> 'location' -> 'name')::VARCHAR  AS city,
 		(extracted_data -> 'location' -> 'region')::VARCHAR  AS region,
@@ -22,4 +22,4 @@ select
 		((extracted_data -> 'forecast' -> 'forecastday' -> 0 -> 'astro' -> 'moon_illumination')::VARCHAR)::FLOAT AS moonlight        
 FROM {{source("staging", "raw_temp")}})
 
-select * from city_weather_data order by city, date ASC;
+SELECT * FROM city_weather_data ORDER BY city, date ASC;
