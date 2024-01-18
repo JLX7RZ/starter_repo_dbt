@@ -22,4 +22,4 @@ SELECT
 		((extracted_data -> 'forecast' -> 'forecastday' -> 0 -> 'astro' -> 'moon_illumination')::VARCHAR)::FLOAT AS moonlight        
 FROM {{source("staging", "raw_temp")}})
 
-SELECT * FROM city_weather_data ORDER BY city, date ASC;
+SELECT * FROM city_weather_data ORDER BY city, date;
