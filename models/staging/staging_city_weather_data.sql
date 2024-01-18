@@ -7,7 +7,7 @@ SELECT
 		(extracted_data -> 'location' -> 'region')::VARCHAR  AS region,
 		(extracted_data -> 'location' -> 'country')::VARCHAR  AS country,
         ((extracted_data -> 'location' -> 'lat')::VARCHAR)::NUMERIC  AS lat, 
-        ((extracted_data -> 'location' -> 'lon')::VARCHAR)::NUMERIC  AS lon
+        ((extracted_data -> 'location' -> 'lon')::VARCHAR)::NUMERIC  AS lon,
 		-- DAY DATA
 		((extracted_data -> 'forecast' -> 'forecastday' -> 0 -> 'date')::VARCHAR)::date  AS date,
 		((extracted_data -> 'forecast' -> 'forecastday' -> 0 -> 'day' -> 'maxtemp_c')::VARCHAR)::FLOAT AS maxtemp_c,
