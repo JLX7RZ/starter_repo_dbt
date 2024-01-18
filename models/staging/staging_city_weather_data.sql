@@ -15,7 +15,7 @@ SELECT
 		((extracted_data -> 'forecast' -> 'forecastday' -> 0 -> 'day' -> 'avgtemp_c')::VARCHAR)::FLOAT AS avgtemp_c,
 		((extracted_data -> 'forecast' -> 'forecastday' -> 0 -> 'day' -> 'uv')::VARCHAR)::FLOAT AS uv,
 		-- ASTRO DATA
-		(extracted_data -> 'forecast' -> 'forecastday' -> 0 -> 'astro' -> 'sunrise')::VARCHAR AS sunrise,
+		REPLACE ((extracted_data -> 'forecast' -> 'forecastday' -> 0 -> 'astro' -> 'sunrise'), '"', '')::VARCHAR AS sunrise,
 		(extracted_data -> 'forecast' -> 'forecastday' -> 0 -> 'astro' -> 'sunset')::VARCHAR AS sunset,
 		(extracted_data -> 'forecast' -> 'forecastday' -> 0 -> 'astro' -> 'moonrise')::VARCHAR AS moonrise,
 		(extracted_data -> 'forecast' -> 'forecastday' -> 0 -> 'astro' -> 'moonset')::VARCHAR AS moonset,
